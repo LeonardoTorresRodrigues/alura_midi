@@ -1,6 +1,14 @@
-function playPom() {
-  document.querySelector('#som_tecla_pom').play();
+function playAudio(idAudio) {
+  document.querySelector(idAudio).play();
 }
- const keysList = document.querySelectorAll('.tecla');
+const keysList = document.querySelectorAll('.tecla');
 
- keysList[0].onclick = playPom;
+for (let countdown = 0; countdown < keysList.length; countdown++) {
+  const key = keysList[countdown];
+  const instrument = key.classList[1];
+  const idAudio = `#som_${instrument}`;
+
+  key.onclick = function () {
+    playAudio(idAudio);
+  };
+};
