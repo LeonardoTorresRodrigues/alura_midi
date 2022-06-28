@@ -1,15 +1,12 @@
 function playAudio(idAudio) {
   const element = document.querySelector(idAudio);
 
-  if(element === null) {
-    alert('Elemento não encontrado');
-  };
-
-  if(element != null) {
-    if(element.localName === 'audio') {
-      element.play();
-    };
-  };
+  if (element && element.localName === 'audio') {
+    element.play();
+  }
+  else {
+    alert('Elemento não encontrado ou seletor inválido');
+  }
 };
 const keysList = document.querySelectorAll('.tecla');
 
@@ -23,7 +20,7 @@ for (let i = 0; i < keysList.length; i++) {
   };
 
   key.onkeydown = function (event) {
-    if(event.code === "Enter" || event.code === "Space") {
+    if (event.code === "Enter" || event.code === "Space") {
       key.classList.add('ativa');
     };
   };
